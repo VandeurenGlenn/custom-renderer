@@ -12,6 +12,7 @@ var render = (function () {
    */
   var render = (element, template, properties) => {
     const result = template(properties);
+    if (element.shadowRoot) element = element.shadowRoot;
     if (!element.innerHTML) {
       element.innerHTML = result.template;
     }

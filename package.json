@@ -1,6 +1,6 @@
 {
   "name": "custom-renderer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "render.js",
   "repository": "https://github.com/vandeurenglenn/custom-renderer",
   "author": "vandeurenglenn <vandeurenglenn@gmail.com>",
