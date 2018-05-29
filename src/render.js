@@ -1,13 +1,14 @@
 const charIt = (chars, string) => `${chars[0]}${string}${chars[1]}`;
 
-let offset = 0;
+// let offset = 0;
 
 /**
  * @param {object} element HTMLElement
  * @param {function} template custom-html templateResult
  * @param {object} properties {}
  */
-export default (element, template, properties) => {
+export default (element, template, properties = {}) => {
+  let offset = 0;
   const result = template(properties);
   if (element.shadowRoot) element = element.shadowRoot;
   if (!element.innerHTML) {
