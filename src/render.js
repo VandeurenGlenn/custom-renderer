@@ -4,18 +4,16 @@ const charIt = (chars, string) => `${chars[0]}${string}${chars[1]}`;
 
 /**
  * @param {object} element HTMLElement
- * @param {function} template custom-html templateResult
- * @param {object} properties {}
+ * @param {function} tagResult custom-renderer-mixin {changes: [], template: ''}
  */
-export default (element, template, properties = {}) => {
+export default (element, tagResult) => {
   let offset = 0;
-  const result = template(properties);
   if (element.shadowRoot) element = element.shadowRoot;
   if (!element.innerHTML) {
-    element.innerHTML = result.template
+    element.innerHTML = tagResult.template
   }
   const length = element.innerHTML.length;
-  result.changes.forEach(change => {
+  tagResult.changes.forEach(change => {
     const position = change.from.position;
     const chars = [
       element.innerHTML.charAt(((position[0] - 1) + offset)),
